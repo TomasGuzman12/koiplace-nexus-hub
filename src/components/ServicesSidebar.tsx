@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -62,12 +61,12 @@ const ServicesSidebar = ({
   ];
 
   const locations = [
-    'Buenos Aires Centro',
-    'Palermo',
-    'Recoleta', 
-    'Villa Crespo',
-    'San Telmo',
-    'Belgrano'
+    'Yerba Buena - Tucumán',
+    'San Miguel de Tucumán',
+    'Tafí Viejo',
+    'Banda del Río Salí',
+    'Las Talitas',
+    'Alderetes'
   ];
 
   const priceRanges = [

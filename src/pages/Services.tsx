@@ -29,7 +29,7 @@ const Services = () => {
       name: 'Sonido Pro',
       company: 'Equipos de Audio Premium',
       category: 'Audio y Sonido',
-      location: 'Buenos Aires Centro',
+      location: 'Yerba Buena - Tucumán',
       rating: 4.8,
       reviews: 156,
       services: ['Equipos de sonido', 'Iluminación', 'DJ'],
@@ -40,7 +40,7 @@ const Services = () => {
       description: 'Especialistas en eventos masivos con equipos de última generación.',
       image: '/placeholder.svg',
       contact: {
-        phone: '+54 11 1234-5678',
+        phone: '+54 381 1234-5678',
         email: 'info@sonidopro.com'
       }
     },
@@ -49,7 +49,7 @@ const Services = () => {
       name: 'Catering Delicias',
       company: 'Servicios Gastronómicos',
       category: 'Gastronomía',
-      location: 'Palermo',
+      location: 'San Miguel de Tucumán',
       rating: 4.9,
       reviews: 203,
       services: ['Catering', 'Servicio de mozos', 'Barra móvil'],
@@ -60,7 +60,7 @@ const Services = () => {
       description: 'Catering gourmet para eventos corporativos y sociales.',
       image: '/placeholder.svg',
       contact: {
-        phone: '+54 11 2345-6789',
+        phone: '+54 381 2345-6789',
         email: 'contacto@delicias.com'
       }
     },
@@ -69,7 +69,7 @@ const Services = () => {
       name: 'Decoraciones Luna',
       company: 'Ambientación Integral',
       category: 'Decoración',
-      location: 'Villa Crespo',
+      location: 'Tafí Viejo',
       rating: 4.7,
       reviews: 89,
       services: ['Decoración', 'Flores', 'Mobiliario'],
@@ -80,7 +80,7 @@ const Services = () => {
       description: 'Creamos ambientes únicos para cada ocasión especial.',
       image: '/placeholder.svg',
       contact: {
-        phone: '+54 11 3456-7890',
+        phone: '+54 381 3456-7890',
         email: 'luna@decoraciones.com'
       }
     },
@@ -89,7 +89,7 @@ const Services = () => {
       name: 'Seguridad Total',
       company: 'Servicios de Seguridad',
       category: 'Seguridad',
-      location: 'Recoleta',
+      location: 'Yerba Buena - Tucumán',
       rating: 4.6,
       reviews: 67,
       services: ['Personal de seguridad', 'Custodia', 'Control de acceso'],
@@ -100,7 +100,7 @@ const Services = () => {
       description: 'Profesionales en seguridad para eventos públicos y privados.',
       image: '/placeholder.svg',
       contact: {
-        phone: '+54 11 4567-8901',
+        phone: '+54 381 4567-8901',
         email: 'info@seguridadtotal.com'
       }
     }

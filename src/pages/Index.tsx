@@ -1,10 +1,66 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Users, Briefcase, MapPin, ArrowRight, CheckCircle } from 'lucide-react';
+import { Calendar, Users, Briefcase, MapPin, ArrowRight, CheckCircle, Star, Shield, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const Index = () => {
+  const featuredProviders = [
+    {
+      id: 1,
+      name: 'Sonido Pro',
+      company: 'Equipos de Audio Premium',
+      category: 'Audio y Sonido',
+      location: 'Yerba Buena - Tucumán',
+      rating: 4.8,
+      reviews: 156,
+      services: ['Equipos de sonido', 'Iluminación', 'DJ'],
+      verified: true,
+      price: '$$',
+      description: 'Especialistas en eventos masivos con equipos de última generación.',
+      image: '/placeholder.svg'
+    },
+    {
+      id: 2,
+      name: 'Catering Delicias',
+      company: 'Servicios Gastronómicos',
+      category: 'Gastronomía',
+      location: 'Yerba Buena - Tucumán',
+      rating: 4.9,
+      reviews: 203,
+      services: ['Catering', 'Servicio de mozos', 'Barra móvil'],
+      verified: true,
+      price: '$$$',
+      description: 'Catering gourmet para eventos corporativos y sociales.',
+      image: '/placeholder.svg'
+    },
+    {
+      id: 3,
+      name: 'Decoraciones Luna',
+      company: 'Ambientación Integral',
+      category: 'Decoración',
+      location: 'Yerba Buena - Tucumán',
+      rating: 4.7,
+      reviews: 89,
+      services: ['Decoración', 'Flores', 'Mobiliario'],
+      verified: true,
+      price: '$$',
+      description: 'Creamos ambientes únicos para cada ocasión especial.',
+      image: '/placeholder.svg'
+    }
+  ];
+
+  const getPriceText = (price: string) => {
+    switch (price) {
+      case '$': return 'Económico';
+      case '$$': return 'Moderado';
+      case '$$$': return 'Premium';
+      default: return 'Consultar';
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#fdf6ee]">
       {/* Header */}
@@ -77,6 +133,92 @@ const Index = () => {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Featured Providers Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Prestadores de Servicios Destacados</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Conecta con los mejores profesionales verificados de Yerba Buena - Tucumán
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {featuredProviders.map((provider) => (
+            <Card key={provider.id} className="bg-white rounded-2xl border-0 shadow-md hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4 mb-4">
+                  <Avatar className="w-12 h-12 border-2 border-gray-100">
+                    <AvatarImage src={provider.image} alt={provider.name} />
+                    <AvatarFallback className="bg-[#3c6e51] text-white font-semibold">
+                      {provider.name.charAt(0)}
+                    </AvatarFallback>
+                  </Avatar>
+                  
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-lg font-semibold text-gray-900">{provider.name}</h3>
+                      {provider.verified && (
+                        <Shield className="w-4 h-4 text-green-600" />
+                      )}
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">{provider.company}</p>
+                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                        <span className="font-medium">{provider.rating}</span>
+                        <span>({provider.reviews})</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MapPin className="w-3 h-3" />
+                        <span>{provider.location}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-sm text-gray-600 mb-4">{provider.description}</p>
+
+                <div className="space-y-3 mb-4">
+                  <div>
+                    <div className="flex flex-wrap gap-2">
+                      {provider.services.slice(0, 2).map((service, index) => (
+                        <Badge key={index} variant="outline" className="border-[#3c6e51] text-[#3c6e51] text-xs">
+                          {service}
+                        </Badge>
+                      ))}
+                      {provider.services.length > 2 && (
+                        <Badge variant="outline" className="border-gray-300 text-gray-600 text-xs">
+                          +{provider.services.length - 2} más
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" className="flex-1 rounded-xl text-xs">
+                    <Phone className="w-3 h-3 mr-1" />
+                    Llamar
+                  </Button>
+                  <Button size="sm" className="flex-1 bg-[#3c6e51] hover:bg-[#2d5940] text-white rounded-xl text-xs">
+                    Ver perfil
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="text-center">
+          <Link to="/services">
+            <Button className="bg-[#3c6e51] hover:bg-[#2d5940] text-white rounded-xl px-8">
+              Ver todos los prestadores
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </Link>
         </div>
       </section>
 
